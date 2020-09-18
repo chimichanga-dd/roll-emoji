@@ -22,7 +22,7 @@ const EmojiContainer = () => {
 
   return (
     <div className="e-container">
-      {emojis.map(svg => <EmojiButton svg={svg} />)}
+      {emojis.map(svg => <EmojiButton svg={svg} key={svg.alt}/>)}
     </div>
   )
 

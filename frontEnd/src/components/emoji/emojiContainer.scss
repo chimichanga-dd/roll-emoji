@@ -9,6 +9,11 @@
   position: absolute;
 }
 
+.e-container{
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .red {
   background-color: #E94A3F;
 }

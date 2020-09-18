@@ -7,15 +7,14 @@ const RollADie = () => {
   const [spinning, setSpinning ] = useState(false)
   const [number, setNumber] = useState(undefined)
 
-
-  console.log(spinning)
-
   const roll = () => {
-    setSpinning(true)
-    setTimeout( () => {
-      setSpinning(false)
-      setNumber(Math.floor(Math.random() * 101))
-    }, 2800)
+    if(!spinning){
+      setSpinning(true)
+      setTimeout( () => {
+        setSpinning(false)
+        setNumber(Math.floor(Math.random() * 101))
+      }, 2800)
+    }
   }
 
   return (
