@@ -4,6 +4,9 @@ import 'semantic-ui-css/semantic.min.css'
 import RollADie from './components/rolladie/rolladie';
 import ChatContainer from './components/chat/chatContainer';
 
+const io = require('socket.io-client');
+
+
 
 function App() {
 
@@ -16,7 +19,14 @@ function App() {
       setTestMessage(res.testMessage)
     }
 
+    const socket = io();
+    socket.on('connected', (message) => {
+      console.log(message)
+    })
+
     loadMessage()
+
+
   }, [])
 
   return (

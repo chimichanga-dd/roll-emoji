@@ -1,25 +1,27 @@
 const express = require('express')
-const cors = require('cors')
+const http = require('http')
 const path = require('path')
-const  app = express()
+const socketIo = require('socket.io')
+const app = express()
+const routes = require('./router/routes')
 
-app.use(express.static(path.join(__dirname, 'frontEnd/build')))
+app.use(routes);
+app.use(express.static(path.join(__dirname, 'client/build')))
 
-app.get('/api/tester/', cors(), async(req,res,next) => {
-  try {
-    res.json({testMessage:'You better be able to see this binch'})
-  } catch (err) {
-    next(err)
-  }
-})
+const server = http.createServer(app);
+const io = socketIo(server);
 
+io.on("connection", (socket) => {
+  console.log("New client connected");
+  socket.emit('connected','Someone just connected')
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/frontEnd/build/index.html'))
-})
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+  });
+});
 
 const PORT = process.env.PORT || 5000
 
-app.listen( PORT, () => {
+server.listen( PORT, () => {
   console.log(`Mixing it up on port ${PORT}`)
 })
