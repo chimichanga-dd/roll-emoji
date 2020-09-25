@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-const io = require('socket.io-client');
-const socket = io();
+import socket from '../socket/socketIO'
+
 
 const ChatInput = () => {
 

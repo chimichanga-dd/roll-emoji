@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
-import ChatInput from "./chatInput";
-import ChatMessage from "./chatMessage";
-const io = require('socket.io-client');
-const socket = io();
+import ChatInput from "./chatInput"
+import ChatMessage from "./chatMessage"
+import socket from '../socket/socketIO'
 
 const Chat = () => {
 
@@ -16,7 +15,7 @@ const Chat = () => {
     })
 
     return (
-      socket.emit('disconnect', { type:'disconnected', person: 'David' })
+      () => socket.broadcast.emit('disconnect', { type:'disconnected', person: 'David' })
     )
 
   }, [])
