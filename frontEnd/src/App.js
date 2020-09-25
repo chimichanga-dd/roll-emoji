@@ -10,30 +10,30 @@ const io = require('socket.io-client');
 
 function App() {
 
-  const [testMessage, setTestMessage] = useState('')
+  // const [testMessage, setTestMessage] = useState('')
 
-  useEffect(()=> {
-    async function loadMessage(){
-      let resProm = await fetch('/api/tester')
-      let res = await resProm.json()
-      setTestMessage(res.testMessage)
-    }
+  // useEffect(()=> {
+  //   async function loadMessage(){
+  //     let resProm = await fetch('/api/tester')
+  //     let res = await resProm.json()
+  //     setTestMessage(res.testMessage)
+  //   }
 
-    const socket = io();
-    socket.on('connected', (message) => {
-      console.log(message)
-    })
+  //   const socket = io();
+  //   socket.on('connected', (message) => {
+  //     console.log(message)
+  //   })
 
-    loadMessage()
+  //   loadMessage()
 
 
-  }, [])
+  // }, [])
 
   return (
     <div className="App main-body">
       <RollADie/>
       <ChatContainer/>
-      <div> {testMessage} </div>
+      {/* <div> {testMessage} </div> */}
     </div>
   );
 }

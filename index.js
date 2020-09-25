@@ -12,12 +12,18 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 io.on("connection", (socket) => {
-  console.log("New client connected");
+  console.log("New client connected")
   socket.emit('connected','Someone just connected')
 
-  socket.on("disconnect", () => {
-    console.log("Client disconnected");
+  socket.on("disconnect", (msg) => {
+    io.emit('message Received', msg)
   });
+
+  socket.on('message Sent', (msg) => {
+    io.emit('message Received', msg)
+  });
+
+
 });
 
 const PORT = process.env.PORT || 5000
