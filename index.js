@@ -6,7 +6,7 @@ const app = express()
 const routes = require('./router/routes')
 
 app.use(routes);
-app.use(express.static(path.join(__dirname, 'client/build')))
+app.use(express.static(path.join(__dirname, 'frontEnd/build')))
 
 const server = http.createServer(app);
 const io = socketIo(server);

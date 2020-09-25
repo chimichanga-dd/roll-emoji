@@ -17,9 +17,8 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   })
 } else {
   router.get('*', (req, res) => {
-    res.sendFile(path.join('/app/frontEnd/build/index.html'))
+    res.sendFile(path.join(__dirname + '/frontEnd/build/index.html'))
   })
 }
-
 
 module.exports = router;
