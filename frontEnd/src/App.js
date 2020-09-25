@@ -8,18 +8,6 @@ import socket from './components/socket/socketIO'
 
 function App() {
 
-  const [testMessage, setTestMessage] = useState('')
-
-  useEffect(()=> {
-    async function loadMessage(){
-      let resProm = await fetch('/api/tester')
-      let res = await resProm.json()
-      setTestMessage(res.testMessage)
-    }
-
-    loadMessage()
-  }, [])
-
   return (
     <div className="App main-body">
       <RollADie/>
