@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "watch": "nodemon index.js",
-    "local": "nodemon index.js && cd frontEnd && npm run start",
     "heroku-prebuild": "cd frontEnd && npm install && npm run build"
   },
   "author": "",
