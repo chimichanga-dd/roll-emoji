@@ -21,9 +21,11 @@ io.on("connection", (socket) => {
   })
 
   socket.on("disconnect", (msg) => {
-    console.log(msg)
-    io.emit('message Received', {type:'disconnected', person: userSockets[socket]})
-    delete userSockets[socket]
+    if (msg != "ping timeout") {
+      io.emit('message Received', {type:'disconnected', person: userSockets[socket]})
+      delete userSockets[socket]
+    }
+
   });
 
   socket.on('message Sent', (msg) => {
