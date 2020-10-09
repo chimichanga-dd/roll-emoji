@@ -14,11 +14,8 @@ const io = socketIo(server);
 const userSockets = {}
 
 io.on("connection", (socket) => {
-  console.log("New client connected")
-  socket.emit('connected','Someone just connected')
 
   socket.on('connected', (user) =>{
-    console.log('entered connection')
     io.emit('message Received', { type:'connected', person: user })
     userSockets[socket] = user
   })
