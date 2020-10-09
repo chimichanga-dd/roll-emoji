@@ -11,14 +11,22 @@ app.use(express.static(path.join(__dirname, 'frontEnd/build')))
 const server = http.createServer(app);
 const io = socketIo(server);
 
+const userSockets = {}
+
 io.on("connection", (socket) => {
   console.log("New client connected")
   socket.emit('connected','Someone just connected')
 
-  // socket.on("disconnect", (msg) => {
-  //   console.log(msg)
-  //   io.emit('message Received', msg)
-  // });
+  socket.on('connected', (user) =>{
+    console.log('entered connection')
+    io.emit('message Received', { type:'connected', person: user })
+    userSockets[socket] = user
+  })
+
+  socket.on("disconnect", () => {
+    io.emit('message Received', {type:'disconnected', person: userSockets[socket]})
+    delete userSockets[socket]
+  });
 
   socket.on('message Sent', (msg) => {
     io.emit('message Received', msg)

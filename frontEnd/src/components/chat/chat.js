@@ -12,6 +12,8 @@ const Chat = () => {
 
   useEffect(()=> {
 
+    socket.emit('connected', user)
+
     socket.on('message Received', (message) => {
       setChatMessages( (chatMessages) => [...chatMessages, message])
     })
