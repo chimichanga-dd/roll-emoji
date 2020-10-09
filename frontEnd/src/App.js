@@ -1,11 +1,7 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
-import RollADie from './components/rolladie/rolladie';
-import ChatContainer from './components/chat/chatContainer';
-import socket from './components/socket/socketIO'
-// import AuthenticatedApp from './components/auth/authenticatedApp';
-// import UnauthenticatedApp from './components/auth/unauthenticatedApp';
+
 import {
   useAuthState,
   AuthProvider
@@ -28,8 +24,6 @@ function App() {
     <AuthProvider>
       <div className="App main-body">
         <Main/>
-        {/* <RollADie/>
-        <ChatContainer/> */}
       </div>
     </AuthProvider>
   );
