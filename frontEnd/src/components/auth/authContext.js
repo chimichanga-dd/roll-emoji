@@ -32,45 +32,23 @@ export const AuthProvider = ({children}) => {
     user: null,
   })
 
-  const getUser = () => {
-    let user = localStorage.getItem('userName')
-    setState({status: 'success', error: null, user})
-    return user
-  }
 
   const setUser = (userName) => {
-    let user = localStorage.setItem('userName', userName)
-    setState({status: 'success', error: null, user})
-    return user
+    setState({status: 'success', error: null, user: userName})
   }
 
   const logOut = () => {
-    localStorage.removeItem('userName')
     setState({status: 'success', error: null, user: null})
   }
 
   let stateModifiers = {
-    getUser,
     setUser,
     logOut
   }
 
-  useEffect(() => {
-
-    let user = getUser()
-    console.log("user", user)
-
-  }, [state.user])
-
   return (
     <AuthContext.Provider value={{state, stateModifiers}}>
-      {/* {state.status === 'pending' ? (
-        'Loading...'
-        ) : state.status === 'error' ? (
-          <div> {state.error.message} </div>
-        ) : ( */}
-          {children}
-        {/* )} */}
+      {children}
     </AuthContext.Provider>
   )
 }
