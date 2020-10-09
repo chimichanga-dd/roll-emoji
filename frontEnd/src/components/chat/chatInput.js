@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react"
 import socket from '../socket/socketIO'
 
 
-const ChatInput = () => {
+const ChatInput = ({user}) => {
 
   const [message, setMessage] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    socket.emit('message Sent', { type:'message', person: 'David', message })
+    socket.emit('message Sent', { type:'message', person: user, message })
     setMessage('')
   }
 

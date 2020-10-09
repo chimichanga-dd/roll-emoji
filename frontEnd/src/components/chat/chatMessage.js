@@ -11,9 +11,9 @@ const ChatMessage = ({messageObject}) => {
       case 'reaction':
         return <div>{messageObject.person} reacted with {messageObject.message}</div>
       case 'disconnected':
-        return <div>{messageObject.person} has disconnected</div>
+        return <div>{messageObject.person} has signed out</div>
       case 'connected':
-        return <div>{messageObject.person} has connected</div>
+        return <div>{messageObject.person} has joined</div>
       default:
         return <div>IDK WHAT WOULD GET THIS</div>
     }

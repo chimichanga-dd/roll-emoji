@@ -15,9 +15,10 @@ io.on("connection", (socket) => {
   console.log("New client connected")
   socket.emit('connected','Someone just connected')
 
-  socket.on("disconnect", (msg) => {
-    io.emit('message Received', msg)
-  });
+  // socket.on("disconnect", (msg) => {
+  //   console.log(msg)
+  //   io.emit('message Received', msg)
+  // });
 
   socket.on('message Sent', (msg) => {
     io.emit('message Received', msg)

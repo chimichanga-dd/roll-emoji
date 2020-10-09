@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react"
 import ChatInput from "./chatInput"
 import ChatMessage from "./chatMessage"
 import socket from '../socket/socketIO'
+import { useAuthState } from "../auth/authContext"
 
 const Chat = () => {
 
+  const {state: {user}} = useAuthState()
   const [chatMessages, setChatMessages] = useState([])
 
 
@@ -15,7 +17,7 @@ const Chat = () => {
     })
 
     return (
-      () => socket.broadcast.emit('disconnect', { type:'disconnected', person: 'David' })
+      () => socket.emit('message Sent', { type:'disconnected', person: user})
     )
 
   }, [])
@@ -26,7 +28,7 @@ const Chat = () => {
       <div>
         {chatMessages.map((messageObject, index) => <ChatMessage messageObject={messageObject} key={index}/>)}
       </div>
-      <ChatInput/>
+      <ChatInput user={user}/>
     </div>
   )
 
