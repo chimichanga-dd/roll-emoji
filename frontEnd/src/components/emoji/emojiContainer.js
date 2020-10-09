@@ -19,7 +19,7 @@ function create(svg, i) {
     "left" : Math.random()*90+"%",
     "opacity" : Math.random()+0.5,
     "transform" : Math.random() > .5 ? "rotate("+Math.random()*90+"deg)" : "rotate(-"+Math.random()*90+"deg)"
-  }).appendTo('.main-body');
+  }).appendTo('.clear-container');
 
   drop(svg, i);
 }
