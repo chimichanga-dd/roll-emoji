@@ -20,17 +20,47 @@ io.on("connection", (socket) => {
     userSockets[socket] = user
   })
 
-  socket.on("disconnect", () => {
+  socket.on("disconnect", (msg) => {
+    console.log(msg)
     io.emit('message Received', {type:'disconnected', person: userSockets[socket]})
     delete userSockets[socket]
   });
 
   socket.on('message Sent', (msg) => {
+    console.log(msg)
     io.emit('message Received', msg)
   });
 
 
+////////////////
+
+  socket.on('error', (error) => {
+    console.log("error:", error)
+  });
+
+  socket.on("connect_timeout", () => {
+    console.log("connection timeout")
+  })
+
+  socket.on("reconnect",(number) => {
+    console.log("connection number:", number)
+  } )
+
+  socket.on("ping", () => {
+    console.log("ping")
+  })
+  socket.on("pong", (ms) => {
+    console.log(`pong after ${ms} ms`)
+  })
+  socket.on('error', (error) => {
+  // ...
 });
+
+});
+
+
+
+
 
 const PORT = process.env.PORT || 5000
 
