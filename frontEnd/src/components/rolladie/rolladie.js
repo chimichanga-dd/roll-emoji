@@ -33,7 +33,7 @@ const RollADie = () => {
   }
 
   return (
-    <div className="ui segment rolladie-container" style={{margin: 0}}>
+    <div className="ui segment rolladie-container" style={{margin: 0, minWidth: 400}}>
       <div className="fake-background">
         <div className="container">
           <div className={`dice spinning-${spinning}`}>

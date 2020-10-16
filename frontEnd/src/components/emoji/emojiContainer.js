@@ -17,14 +17,24 @@ const EmojiContainer = () => {
   const {state: {user}} = useAuthState()
 
   const emojis = [
-    {src: okay, alt: "okays", displayMessage: "gives an okay"},
-    {src: thumbsUp, alt: "thumbsUp", displayMessage: "gives a thumbs up"},
-    {src: laughing, alt: "laughing", displayMessage: "started laughing"},
-    {src: champagne, alt: "champagne", displayMessage: "popped some champagne"},
-    {src: rose, alt: "roses", displayMessage: "threw some roses"},
-    {src: poop, alt: "poop", displayMessage: "threw some poop"}
+    {src: okay, alt: "okays", displayMessage: "gives an okay", count: 0},
+    {src: thumbsUp, alt: "thumbsUp", displayMessage: "gives a thumbs up", count: 0},
+    {src: laughing, alt: "laughing", displayMessage: "started laughing", count: 0},
+    {src: champagne, alt: "champagne", displayMessage: "popped some champagne", count: 0},
+    {src: rose, alt: "roses", displayMessage: "threw some roses", count: 0},
+    {src: poop, alt: "poop", displayMessage: "threw some poop", count: 0}
   ]
 
+  const getEmojiCount = (emojiTarget) => {
+    console.log(emojiTarget)
+    return emojis.find((emoji) => emoji.alt === emojiTarget.alt).count
+  }
+
+  const increaseEmojiCount = (emojiTarget,val) => {
+    let emoji = emojis.find((emoji) => emoji.alt === emojiTarget.alt)
+    emoji.count+= val
+    return emoji.count
+  }
 
   useEffect( () => {
     socket.on('emojiClicked', (clickedEmoji) => {
@@ -60,9 +70,13 @@ const EmojiContainer = () => {
   }
 
   const makeConfetti = (svg) => {
-    for (var i = 0; i < 9; i++) {
+    let quantity = 9
+    let count = getEmojiCount(svg)
+    for (let i = count; i < count + quantity; i++) {
       create(svg,i);
     }
+    increaseEmojiCount(svg, quantity)
+
   }
 
 

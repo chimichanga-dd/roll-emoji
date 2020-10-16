@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { Button, Form, Input } from "semantic-ui-react"
 import { rollApi } from "../../services/rollApi"
 import { useAuthState } from "./authContext"
+import "./unauthenticatedApp.scss"
 
 const UnauthenticatedApp = () => {
 
@@ -17,15 +18,17 @@ const UnauthenticatedApp = () => {
       stateModifiers.setUser(un.data)
       setErrors("")
     } catch (error) {
-      console.log(error)
-      setErrors(error.message)
+      ( error.message === "Request failed with status code 406" ?
+        setErrors("That name is already in use"):
+        setErrors(error.message)
+      )
     }
   }
 
   return (
     <div className="ui segment" style={{margin: '0px 0px 0px 40px'}}>
       <div>Oh Em GeE, YoU nEeD tO tElL mE yOuR nAmE rIgHt NoW</div>
-      <div>{errors}</div>
+      <div className={"error-message"}>{errors}</div>
       <Form>
         <Input
           value={userName}
