@@ -1,19 +1,34 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Button } from "semantic-ui-react"
+import { useAuthState } from "../auth/authContext"
+import socket from "../socket/socketIO"
 import "./rolladie.scss"
 
 const RollADie = () => {
 
+  const {state: {user}} = useAuthState()
   const [spinning, setSpinning ] = useState(false)
   const [number, setNumber] = useState(undefined)
 
-  const roll = () => {
-    if(!spinning){
+  useEffect( () => {
+    socket.on('spin', (num) => {
       setSpinning(true)
       setTimeout( () => {
         setSpinning(false)
-        setNumber(Math.floor(Math.random() * 101))
+        setNumber(num)
       }, 2800)
+    })
+
+  }, [])
+
+  const roll = () => {
+    if(!spinning){
+      let rollNum = Math.floor(Math.random() * 101)
+      socket.emit('spin', rollNum)
+      setTimeout( () => {
+        socket.emit('rolled', {user, num: rollNum})
+      }, 2800)
+
     }
   }
 

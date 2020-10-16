@@ -10,6 +10,8 @@ const ChatMessage = ({messageObject}) => {
         return <div>{messageObject.person}: {messageObject.message}</div>
       case 'reaction':
         return <div>{messageObject.person} reacted with {messageObject.message}</div>
+      case 'rollMessage':
+        return <div>{messageObject.person} rolled a {messageObject.num}</div>
       case 'disconnected':
         return <div>{messageObject.person} has left</div>
       case 'connected':

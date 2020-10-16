@@ -33,6 +33,14 @@ io.on("connection", (socket) => {
     io.emit('message Received', msg)
   });
 
+  socket.on('spin', (num) => {
+    io.emit('spin', num)
+  })
+
+  socket.on('rolled', ({user, num}) => {
+    io.emit('message Received', {type: 'rollMessage', person: user, num})
+  })
+
 
 ////////////////
 
