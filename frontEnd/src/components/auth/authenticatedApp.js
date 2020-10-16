@@ -1,6 +1,7 @@
 
 import React from "react"
 import ChatContainer from "../chat/chatContainer"
+import ClearContainer from "../clearContainer/clearContainer"
 import RollADie from "../rolladie/rolladie"
 import LogOutButton from "./logOutButton"
 
@@ -12,6 +13,7 @@ const AuthenticatedApp = () => {
       <LogOutButton/>
       <RollADie/>
       <ChatContainer/>
+      <ClearContainer/>
     </>
   )
 }

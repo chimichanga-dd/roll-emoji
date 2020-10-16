@@ -41,6 +41,11 @@ io.on("connection", (socket) => {
     io.emit('message Received', {type: 'rollMessage', person: user, num})
   })
 
+  socket.on('emojiClicked', ({emoji, user}) => {
+    io.emit('emojiClicked', emoji)
+    io.emit('message Received', {type: 'reaction', person: user, message: emoji.displayMessage})
+  })
+
 
 ////////////////
 
