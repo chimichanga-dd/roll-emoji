@@ -3,15 +3,17 @@ const http = require('http')
 const path = require('path')
 const socketIo = require('socket.io')
 const app = express()
+const bodyParser = require('body-parser')
 const routes = require('./router/routes')
+const { userSockets } = require("./apiSocket/socketContainer")
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use(routes);
 app.use(express.static(path.join(__dirname, 'frontEnd/build')))
 
 const server = http.createServer(app);
 const io = socketIo(server);
-
-const userSockets = {}
 
 io.on("connection", (socket) => {
 

@@ -4,7 +4,6 @@ import React from "react"
 const ChatMessage = ({messageObject}) => {
 
   const formatMessage = (messageObject) => {
-    console.log(messageObject)
     switch(messageObject.type){
       case 'message':
         return <div>{messageObject.person}: {messageObject.message}</div>
