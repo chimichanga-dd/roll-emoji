@@ -13,7 +13,6 @@ const AuthenticatedApp = () => {
       <LogOutButton/>
       <RollADie/>
       <ChatContainer/>
-      <ClearContainer/>
     </>
   )
 }
