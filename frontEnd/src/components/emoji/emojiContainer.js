@@ -17,12 +17,12 @@ const EmojiContainer = () => {
   const {state: {user}} = useAuthState()
 
   const emojis = [
-    {src: okay, alt: "okays", displayMessage: "an Okay"},
-    {src: thumbsUp, alt: "thumbsUp", displayMessage: "a Thumbs Up"},
-    {src: laughing, alt: "laughing", displayMessage: "Laughing"},
-    {src: champagne, alt: "champagne", displayMessage: "popping Champagne"},
-    {src: rose, alt: "roses", displayMessage: "throwing Roses"},
-    {src: poop, alt: "poop", displayMessage: "throwing Poop"}
+    {src: okay, alt: "okays", displayMessage: "gives an okay"},
+    {src: thumbsUp, alt: "thumbsUp", displayMessage: "gives a thumbs up"},
+    {src: laughing, alt: "laughing", displayMessage: "started laughing"},
+    {src: champagne, alt: "champagne", displayMessage: "popped some champagne"},
+    {src: rose, alt: "roses", displayMessage: "threw some roses"},
+    {src: poop, alt: "poop", displayMessage: "threw some poop"}
   ]
 
 
@@ -33,7 +33,7 @@ const EmojiContainer = () => {
   }, [])
 
   function create(svg, i) {
-    var width = 50;
+    var width = 180;
 
     $("<div class=emoji-" + svg.alt + "-" + i +"><img src='" + svg.src + "' alt=" + svg.alt + "/></div>").css({
       "width" : width+"px",
@@ -48,7 +48,7 @@ const EmojiContainer = () => {
 
   function drop(svg, x) {
     $('.emoji-' + svg.alt + "-" +x).animate({
-      top: "90%",
+      top: "70%",
       left: +Math.random()*90+"%"
     }, Math.random()*3000 + 3000, function() {
       remove(svg,x);
@@ -60,7 +60,7 @@ const EmojiContainer = () => {
   }
 
   const makeConfetti = (svg) => {
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 9; i++) {
       create(svg,i);
     }
   }
