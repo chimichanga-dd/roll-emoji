@@ -1,16 +1,18 @@
 
-.rolladie-container{
+.ui.segment.rolladie-container{
+  grid-area: roll-side;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  margin-top: 14;
+  justify-content: center;
+  align-self: center;
+
   margin: 0px;
-  max-width: 600px;
-  width: 50%;
-  min-height: 400px;
-  max-height: 700px;
+
   height: 100%;
+  min-width: 350px;
+
+
 }
 
 .fake-background{
@@ -51,15 +53,20 @@
 
 .face{
   display: flex;
+  position: absolute;
   justify-content: center;
   align-items: center;
   background-color: white;
+
   height: 250px;
   width: 250px;
+
   border: 7px solid gray;
   box-sizing: border-box;
-  position: absolute;
+
+
   margin: auto;
+
   top: 0;
   bottom: 0;
   left: 0;
@@ -85,3 +92,33 @@
   transform: rotateY(-270deg) translateX(125px);
   transform-origin: top right;
 }
+
+@media (max-width: 1250px){
+  .ui.segment.rolladie-container{
+    min-height: 600px;
+    max-height: 700px;
+  }
+}
+
+// @media (max-width: 600px){
+//   .fake-background{
+//     width: 70px;
+//     height: 70px;
+//     box-shadow: 0px 0px 5px 5px #888888;
+//   }
+
+//   .face{
+//     height: 60px;
+//     width: 60px;
+//     border: 7px solid gray;
+//   }
+
+//   .dice{
+//     height: 60px;
+//     width: 60px;
+//   }
+
+//   .face-text{
+//     font-size: 30px;
+//   }
+// }

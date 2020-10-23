@@ -1,5 +1,31 @@
 
-.chat-container{
-  width: 40vw;
-  max-width: 600px;
+// .ui.segment.chat-container{
+//   grid-area: chat-side;
+//   // width: 40vw;
+//   // max-width: 600px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: space-evenly;
+//   margin: 0px
+// }
+.ui.segment.chat-container{
+  grid-area: chat-side;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+
+  margin: 0px;
+
+  height: 100%;
+  min-width: 350px;
+}
+
+@media (max-width: 1250px){
+  .ui.segment.chat-container{
+    min-height: 600px;
+    max-height: 700px;
+  }
 }

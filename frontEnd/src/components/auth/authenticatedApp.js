@@ -9,7 +9,7 @@ const AuthenticatedApp = () => {
 
   return (
     <>
-      <div className="clear-container" style={{height: '100%', width: '100%', position: 'absolute', zIndex: -1}}></div>
+      <div className="clear-container"></div>
       <HeaderBar/>
       <div className="roll-chat-container">
         <RollADie/>

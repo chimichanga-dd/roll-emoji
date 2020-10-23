@@ -6,7 +6,7 @@ import Chat from "./chat"
 const ChatContainer = () => {
 
   return (
-    <div className="ui segment chat-container" style={{margin: '0px 0px 0px 40px'}}>
+    <div className="ui segment chat-container">
       <Chat/>
       <EmojiContainer/>
     </div>
