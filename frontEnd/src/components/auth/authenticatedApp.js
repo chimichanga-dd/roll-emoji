@@ -8,14 +8,14 @@ import "./authenticatedApp.scss"
 const AuthenticatedApp = () => {
 
   return (
-    <>
+    <div className="auth-container">
       <div className="clear-container"></div>
       <HeaderBar/>
       <div className="roll-chat-container">
         <RollADie/>
         <ChatContainer/>
       </div>
-    </>
+    </div>
   )
 }
 

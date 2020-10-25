@@ -26,23 +26,25 @@ const UnauthenticatedApp = () => {
   }
 
   return (
-    <div className="ui segment name-form-container">
-      <div className={"name-form-prompt"}>Oh Em GeE, YoU nEeD tO tElL mE yOuR nAmE rIgHt NoW</div>
-      <div className={"error-message"}>{errors}</div>
-      <Form
-        className="name-input-form"
-      >
-        <Input
-          className={"name-input"}
-          value={userName}
-          placeholder={"User Name"}
-          onChange={(e) => setUserName(e.currentTarget.value)}
-        />
-        <Button
-          className="name-input-submit"
-          onClick={(e) => handleSubmit(e)}
-        >Submit</Button>
-      </Form>
+    <div className="unauth-container">
+      <div className="ui segment name-form-container">
+        <div className={"name-form-prompt"}>Oh Em GeE, YoU nEeD tO tElL mE yOuR nAmE rIgHt NoW</div>
+        <div className={"error-message"}>{errors}</div>
+        <Form
+          className="name-input-form"
+        >
+          <Input
+            className={"name-input"}
+            value={userName}
+            placeholder={"User Name"}
+            onChange={(e) => setUserName(e.currentTarget.value)}
+          />
+          <Button
+            className="name-input-submit"
+            onClick={(e) => handleSubmit(e)}
+          >Submit</Button>
+        </Form>
+      </div>
     </div>
   )
 }

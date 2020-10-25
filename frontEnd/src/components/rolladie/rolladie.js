@@ -44,7 +44,7 @@ const RollADie = () => {
           </div>
         </div>
       </div>
-      <Button onClick={() => roll()}>Roll!</Button>
+      <Button className={"roll-button"} onClick={() => roll()}>Roll!</Button>
     </div>
   )
 }

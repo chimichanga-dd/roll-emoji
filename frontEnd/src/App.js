@@ -14,17 +14,20 @@ const Main = () => {
   const {state: {user}} = useAuthState()
   return (
     <Suspense fallback={<div></div>}>
-      {user ? <AuthenticatedApp/> : <UnauthenticatedApp/>}
+      <div className={`App main-body-${user ? "auth" : "unauth"}`}>
+        {user ? <AuthenticatedApp/> : <UnauthenticatedApp/>}
+      </div>
     </Suspense>
   )
 }
 
 function App() {
+
   return (
     <AuthProvider>
-      <div className="App main-body">
+      
         <Main/>
-      </div>
+      
     </AuthProvider>
   );
 }
