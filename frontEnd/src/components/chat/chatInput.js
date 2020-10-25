@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import socket from '../socket/socketIO'
-
+import {Input} from "semantic-ui-react"
+import "./chatInput.scss"
 
 const ChatInput = ({user}) => {
 
@@ -13,8 +14,11 @@ const ChatInput = ({user}) => {
   }
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <input
+    <form
+      className={"chat-form"}
+      onSubmit={(e) => handleSubmit(e)}>
+      <Input
+        className={"chat-input"}
         type="text"
         placeholder={'Type here'}
         value={message}

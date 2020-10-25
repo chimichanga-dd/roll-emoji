@@ -10,12 +10,43 @@
   margin: 0px;
 
   height: 100%;
-  min-width: 350px;
 }
 
-@media (max-width: 1250px){
+.ui.segment.chat-box{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-height: 400px;
+}
+
+.chat-messages{
+  overflow: auto;
+}
+
+.e-container{
+  display: flex;
+  flex-wrap: wrap;
+
+  .button{
+    margin: 5px;
+  }
+
+}
+
+
+@media (max-width: 450px){
+
   .ui.segment.chat-container{
-    // min-height: 600px;
-    // max-height: 700px;
+    max-width: 200px;
+  }
+
+  .e-container{
+
+      .button-emoji{
+        width: 15px
+      }
+
   }
 }

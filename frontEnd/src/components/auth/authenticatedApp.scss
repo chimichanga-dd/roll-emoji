@@ -13,7 +13,7 @@
 .roll-chat-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 4fr 6fr;
   grid-template-areas:
   "roll-side chat-side"
   "roll-side chat-side";
@@ -44,5 +44,12 @@
 
   .auth-container{
     max-height: 800px
+  }
+}
+
+
+@media (max-width: 450px){
+  .auth-container{
+    max-height: 1000px;
   }
 }

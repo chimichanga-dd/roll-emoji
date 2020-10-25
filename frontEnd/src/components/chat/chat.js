@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import ChatInput from "./chatInput"
 import ChatMessage from "./chatMessage"
 import socket from '../socket/socketIO'
@@ -8,6 +8,7 @@ const Chat = () => {
 
   const {state: {user}} = useAuthState()
   const [chatMessages, setChatMessages] = useState([])
+  const bottomOfBox = useRef(null)
 
 
   useEffect(()=> {
@@ -24,11 +25,16 @@ const Chat = () => {
 
   }, [])
 
+  useEffect( () => {
+    bottomOfBox.current.scrollIntoView({ behavior: "smooth" })
+  },[chatMessages])
+
 
   return (
-    <div className="ui segment" style={{margin: '0px 0px 0px 40px'}}>
-      <div>
+    <div className="ui segment chat-box">
+      <div className="chat-messages">
         {chatMessages.map((messageObject, index) => <ChatMessage messageObject={messageObject} key={index}/>)}
+        <div ref={bottomOfBox}></div>
       </div>
       <ChatInput user={user}/>
     </div>

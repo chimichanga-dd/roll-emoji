@@ -10,15 +10,13 @@
   margin: 0px;
 
   height: 100%;
-  min-width: 350px;
-
 
 }
 
 .fake-background{
   width: 250px;
   height: 250px;
-  box-shadow: 0px 0px 20px 20px #888888;
+  box-shadow: 0px 0px 17px 9px #888888;
   padding: 0;
   margin: 0;
 }
@@ -96,59 +94,9 @@
   margin-top: 40px;
 }
 
-@media (max-width: 450px){
-  .ui.segment.rolladie-container{
-    height: 100%;
-    min-width: 200px;
-  }
-  
-  .fake-background{
-    width: 110px;
-    height: 110px;
-    box-shadow: 0px 0px 20px 20px #888888;
-  }
-  
-  
-  .dice{
-    height: 110px;
-    width: 110px;
-  }
-  
-  .face{
-    height: 110px;
-    width: 110px;
-  
-    border: 2px solid gray;
-    box-sizing: border-box;
-
-  }
-  
-  .face-text{
-    font-size: 20px;
-    font-weight: 900;
-  }
-  
-  .front{
-    transform: translateZ(55px);
-  }
-  .back{
-    transform: translateZ(-55px) rotateY(180deg);
-  }
-  .left{
-    transform: rotateY(270deg) translateX(-55px);
-  }
-  .right{
-    transform: rotateY(-270deg) translateX(55px);
-  }
-}
-
 
 @media (max-width: 650px){
-  .ui.segment.rolladie-container{
-    height: 100%;
-    min-width: 200px;
-  }
-  
+
   .fake-background{
     width: 170px;
     height: 170px;
@@ -189,27 +137,48 @@
   }
 }
 
+@media (max-width: 450px){
 
+  .ui.segment.rolladie-container{
+    max-width: 200px;
+  }
+  
+  .fake-background{
+    width: 110px;
+    height: 110px;
+    box-shadow: 0px 0px 17px 9px #888888;
+  }
+  
+  
+  .dice{
+    height: 110px;
+    width: 110px;
+  }
+  
+  .face{
+    height: 110px;
+    width: 110px;
+  
+    border: 2px solid gray;
+    box-sizing: border-box;
 
-// @media (max-width: 600px){
-//   .fake-background{
-//     width: 70px;
-//     height: 70px;
-//     box-shadow: 0px 0px 5px 5px #888888;
-//   }
-
-//   .face{
-//     height: 60px;
-//     width: 60px;
-//     border: 7px solid gray;
-//   }
-
-//   .dice{
-//     height: 60px;
-//     width: 60px;
-//   }
-
-//   .face-text{
-//     font-size: 30px;
-//   }
-// }
+  }
+  
+  .face-text{
+    font-size: 20px;
+    font-weight: 900;
+  }
+  
+  .front{
+    transform: translateZ(55px);
+  }
+  .back{
+    transform: translateZ(-55px) rotateY(180deg);
+  }
+  .left{
+    transform: rotateY(270deg) translateX(-55px);
+  }
+  .right{
+    transform: rotateY(-270deg) translateX(55px);
+  }
+}

@@ -13,6 +13,7 @@ const RollADie = () => {
   useEffect( () => {
     socket.on('spin', (num) => {
       setSpinning(true)
+      setNumber(null)
       setTimeout( () => {
         setSpinning(false)
         setNumber(num)
@@ -32,15 +33,17 @@ const RollADie = () => {
     }
   }
 
+  const generateNum = () => Math.floor(Math.random() * 101)
+
   return (
     <div className="ui segment rolladie-container">
       <div className="fake-background">
         <div className="container">
           <div className={`dice spinning-${spinning}`}>
             <div className="front face"> <p className="face-text">{number}</p></div>
-            <div className="left face"> <p className="face-text">{number}</p></div>
-            <div className="right face"> <p className="face-text">{number}</p></div>
-            <div className="back face"> <p className="face-text">{number}</p></div>
+            <div className="left face"> <p className="face-text">{generateNum()}</p></div>
+            <div className="right face"> <p className="face-text">{generateNum()}</p></div>
+            <div className="back face"> <p className="face-text">{generateNum()}</p></div>
           </div>
         </div>
       </div>

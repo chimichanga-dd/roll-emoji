@@ -20,3 +20,9 @@
     min-height: 500px;
   }
 }
+
+@media (max-width: 450px){
+  .main-body-auth{
+    min-height: 1000px;
+  }
+}
