@@ -100,29 +100,29 @@
   .fake-background{
     width: 170px;
     height: 170px;
-    box-shadow: 0px 0px 20px 20px #888888;
+    box-shadow: 0px 0px 20px 7px #888888;
   }
-  
-  
+
+
   .dice{
     height: 170px;
     width: 170px;
   }
-  
+
   .face{
     height: 170px;
     width: 170px;
-  
+
     border: 2px solid gray;
     box-sizing: border-box;
 
   }
-  
+
   .face-text{
     font-size: 30px;
     font-weight: 900;
   }
-  
+
   .front{
     transform: translateZ(85px);
   }
@@ -142,33 +142,33 @@
   .ui.segment.rolladie-container{
     max-width: 200px;
   }
-  
+
   .fake-background{
     width: 110px;
     height: 110px;
     box-shadow: 0px 0px 17px 9px #888888;
   }
-  
-  
+
+
   .dice{
     height: 110px;
     width: 110px;
   }
-  
+
   .face{
     height: 110px;
     width: 110px;
-  
+
     border: 2px solid gray;
     box-sizing: border-box;
 
   }
-  
+
   .face-text{
     font-size: 20px;
     font-weight: 900;
   }
-  
+
   .front{
     transform: translateZ(55px);
   }

@@ -35,6 +35,20 @@
 
 }
 
+@media (max-width: 1250px){
+
+  .ui.segment.chat-containe{
+    max-height: 450px
+  }
+
+  .ui.segment.chat-box{
+    max-height: 280px
+  }
+  .chat-messages{
+    height:100%
+  }
+}
+
 
 @media (max-width: 450px){
 
