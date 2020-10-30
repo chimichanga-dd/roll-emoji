@@ -1,5 +1,6 @@
 import React from "react"
 import { useState, createContext, useContext } from "react"
+import socket from '../socket/socketIO'
 
 
 export const AuthContext  =  createContext()
@@ -33,6 +34,7 @@ export const AuthProvider = ({children}) => {
   }
 
   const logOut = () => {
+    socket.emit('loggedOut', { person: state.user})
     setState({status: 'success', error: null, user: null})
   }
 

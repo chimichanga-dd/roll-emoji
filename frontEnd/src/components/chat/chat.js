@@ -21,6 +21,7 @@ const Chat = () => {
       setChatMessages( (chatMessages) => [...chatMessages, message])
 
       if(message.type === "reaction" && message.message.includes("megaphone")){
+        audioRef.current.volume = 0.2
         if(!audioRef.current.paused){
           audioRef.current.currentTime = 0
         } else {

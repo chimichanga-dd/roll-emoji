@@ -5,7 +5,7 @@ const socketIo = require('socket.io')
 const app = express()
 const bodyParser = require('body-parser')
 const routes = require('./router/routes')
-const { userSockets } = require("./apiSocket/socketContainer")
+const { userSockets, removeUserByName, removeUserById } = require("./apiSocket/socketContainer")
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -19,19 +19,24 @@ io.on("connection", (socket) => {
 
   socket.on('connected', (user) =>{
     io.emit('message Received', { type:'connected', person: user })
-    userSockets[socket] = user
+    userSockets[socket.id] = user
   })
 
   socket.on("disconnect", (msg) => {
     if (msg != "ping timeout") {
-      io.emit('message Received', {type:'disconnected', person: userSockets[socket]})
-      delete userSockets[socket]
+      io.emit('message Received', {type:'disconnected', person: userSockets[socket.id]})
+      removeUserById(socket.id)
     }
 
   });
 
+  socket.on("loggedOut", ({person}) => {
+    console.log("entered")
+    io.emit('message Received', {type:'disconnected', person})
+    removeUserByName(person)
+  })
+
   socket.on('message Sent', (msg) => {
-    console.log(msg)
     io.emit('message Received', msg)
   });
 
@@ -71,7 +76,7 @@ io.on("connection", (socket) => {
   })
   socket.on('error', (error) => {
   // ...
-});
+  });
 
 });
 
