@@ -28,7 +28,6 @@ const EmojiContainer = () => {
   ]
 
   const getEmojiCount = (emojiTarget) => {
-    console.log(emojiTarget)
     return emojis.find((emoji) => emoji.alt === emojiTarget.alt).count
   }
 

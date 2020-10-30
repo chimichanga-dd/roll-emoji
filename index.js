@@ -31,7 +31,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on("loggedOut", ({person}) => {
-    console.log("entered")
     io.emit('message Received', {type:'disconnected', person})
     removeUserByName(person)
   })
@@ -52,31 +51,6 @@ io.on("connection", (socket) => {
     io.emit('emojiClicked', emoji)
     io.emit('message Received', {type: 'reaction', person: user, message: emoji.displayMessage})
   })
-
-
-////////////////
-
-  socket.on('error', (error) => {
-    console.log("error:", error)
-  });
-
-  socket.on("connect_timeout", () => {
-    console.log("connection timeout")
-  })
-
-  socket.on("reconnect",(number) => {
-    console.log("connection number:", number)
-  } )
-
-  socket.on("ping", () => {
-    console.log("ping")
-  })
-  socket.on("pong", (ms) => {
-    console.log(`pong after ${ms} ms`)
-  })
-  socket.on('error', (error) => {
-  // ...
-  });
 
 });
 
