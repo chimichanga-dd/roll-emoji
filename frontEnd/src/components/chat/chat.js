@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
 import ChatInput from "./chatInput"
 import ChatMessage from "./chatMessage"
 import socket from '../socket/socketIO'
@@ -13,14 +13,13 @@ const Chat = () => {
   const audioRef = useRef(null)
 
 
-  useEffect(()=> {
-
+  useLayoutEffect(()=> {
     socket.emit('connected', user)
 
     socket.on('message Received', (message) => {
       setChatMessages( (chatMessages) => [...chatMessages, message])
 
-      if(message.type === "reaction" && message.message.includes("megaphone")){
+      if(audioRef.current && message.type === "reaction" && message.message.includes("megaphone")){
         audioRef.current.volume = 0.2
         if(!audioRef.current.paused){
           audioRef.current.currentTime = 0
@@ -40,6 +39,9 @@ const Chat = () => {
     bottomOfBox.current.scrollIntoView({ behavior: "smooth" })
   },[chatMessages])
 
+  // const setAudioRef = (element) => {
+  //   audioRef.current = element
+  // }
 
   return (
     <div className="ui segment chat-box">
