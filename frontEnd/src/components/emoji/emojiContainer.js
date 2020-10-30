@@ -7,6 +7,7 @@ import champagne from "../../svg/champagne.svg"
 import rose  from "../../svg/rose.svg"
 import laughing from "../../svg/laughing.svg"
 import poop from "../../svg/poop.svg"
+import megaphone from  "../../svg/megaphone.svg"
 import EmojiButton from "./emojiButton";
 import socket from "../socket/socketIO";
 import { useAuthState } from "../auth/authContext";
@@ -22,7 +23,8 @@ const EmojiContainer = () => {
     {src: laughing, alt: "laughing", displayMessage: "started laughing", count: 0},
     {src: champagne, alt: "champagne", displayMessage: "popped some champagne", count: 0},
     {src: rose, alt: "roses", displayMessage: "threw some roses", count: 0},
-    {src: poop, alt: "poop", displayMessage: "threw some poop", count: 0}
+    {src: poop, alt: "poop", displayMessage: "threw some poop", count: 0},
+    {src: megaphone, alt: "airhorn", displayMessage: "used the megaphone", count: 0}
   ]
 
   const getEmojiCount = (emojiTarget) => {

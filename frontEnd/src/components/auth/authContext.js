@@ -1,10 +1,5 @@
 import React from "react"
-import { useEffect, useState, createContext, useContext } from "react"
-
-
-// const sleep = time => new Promise(resolve => setTimeout(resolve, time))
-
-// const getUser = () => sleep(5000).then(() => ({username: 'elmo'}))
+import { useState, createContext, useContext } from "react"
 
 
 export const AuthContext  =  createContext()
