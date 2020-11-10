@@ -19,7 +19,7 @@ const Chat = () => {
     socket.on('message Received', (message) => {
       setChatMessages( (chatMessages) => [...chatMessages, message])
 
-      if(audioRef.current && message.type === "reaction" && message.message.includes("megaphone")){
+      if(audioRef.current && message.type === "reaction" && message.message.includes("air horn")){
         audioRef.current.volume = 0.2
         if(!audioRef.current.paused){
           audioRef.current.currentTime = 0
@@ -30,7 +30,9 @@ const Chat = () => {
     })
 
     return (
-      () => socket.emit('message Sent', { type:'disconnected', person: user})
+      () => {
+        socket.off('message Received')
+      }
     )
 
   }, [])
@@ -39,9 +41,6 @@ const Chat = () => {
     bottomOfBox.current.scrollIntoView({ behavior: "smooth" })
   },[chatMessages])
 
-  // const setAudioRef = (element) => {
-  //   audioRef.current = element
-  // }
 
   return (
     <div className="ui segment chat-box">

@@ -12,74 +12,64 @@ import EmojiButton from "./emojiButton";
 import socket from "../socket/socketIO";
 import { useAuthState } from "../auth/authContext";
 
+const remove = (svg, i) => {
+  $('.emoji-' + svg.alt + "-" + i).remove()
+}
+
+const drop = (svg, i) => {
+  $('.emoji-' + svg.alt + "-" +i).animate({
+    top: "70%",
+    left: +Math.random()*90+"%"
+  }, Math.random()*3000 + 3000, function() {
+    remove(svg,i);
+  });
+}
+
+const create = (svg) => {
+  
+  const width = 180;
+  const i = Math.random().toString(36).substring(7)
+
+  $("<div class=emoji-" + svg.alt + "-" + i +"><img src='" + svg.src + "' alt=" + svg.alt + "/></div>").css({
+    "width" : width+"px",
+    "top" : -Math.random()*20+"%",
+    "left" : Math.random()*90+"%",
+    "opacity" : Math.random()+0.5,
+    "transform" : Math.random() > .5 ? "rotate("+Math.random()*90+"deg)" : "rotate(-"+Math.random()*90+"deg)"
+  }).appendTo('.clear-container');
+
+  drop(svg, i);
+}
+
+const makeConfetti = (svg) => {
+  let quantity = 9
+  for (let i = 0; i < quantity; i++) {
+    create(svg);
+  }
+}
+
 
 const EmojiContainer = () => {
 
   const {state: {user}} = useAuthState()
 
   const emojis = [
-    {src: okay, alt: "okays", displayMessage: "gives an okay", count: 0},
-    {src: thumbsUp, alt: "thumbsUp", displayMessage: "gives a thumbs up", count: 0},
-    {src: laughing, alt: "laughing", displayMessage: "started laughing", count: 0},
-    {src: champagne, alt: "champagne", displayMessage: "popped some champagne", count: 0},
-    {src: rose, alt: "roses", displayMessage: "threw some roses", count: 0},
-    {src: poop, alt: "poop", displayMessage: "threw some poop", count: 0},
-    {src: megaphone, alt: "airhorn", displayMessage: "used the megaphone", count: 0}
+    {src: okay, alt: "okays", displayMessage: "gives an okay"},
+    {src: thumbsUp, alt: "thumbsUp", displayMessage: "gives a thumbs up"},
+    {src: laughing, alt: "laughing", displayMessage: "started laughing"},
+    {src: champagne, alt: "champagne", displayMessage: "popped some champagne"},
+    {src: rose, alt: "roses", displayMessage: "threw some roses"},
+    {src: poop, alt: "poop", displayMessage: "threw some poop"},
+    {src: megaphone, alt: "megaphone", displayMessage: "used the air horn"}
   ]
-
-  const getEmojiCount = (emojiTarget) => {
-    return emojis.find((emoji) => emoji.alt === emojiTarget.alt).count
-  }
-
-  const increaseEmojiCount = (emojiTarget,val) => {
-    let emoji = emojis.find((emoji) => emoji.alt === emojiTarget.alt)
-    emoji.count+= val
-    return emoji.count
-  }
 
   useEffect( () => {
     socket.on('emojiClicked', (clickedEmoji) => {
       makeConfetti(clickedEmoji)
     })
+
+    return () => socket.off('emojiClicked')
   }, [])
-
-  function create(svg, i) {
-    var width = 180;
-
-    $("<div class=emoji-" + svg.alt + "-" + i +"><img src='" + svg.src + "' alt=" + svg.alt + "/></div>").css({
-      "width" : width+"px",
-      "top" : -Math.random()*20+"%",
-      "left" : Math.random()*90+"%",
-      "opacity" : Math.random()+0.5,
-      "transform" : Math.random() > .5 ? "rotate("+Math.random()*90+"deg)" : "rotate(-"+Math.random()*90+"deg)"
-    }).appendTo('.clear-container');
-
-    drop(svg, i);
-  }
-
-  function drop(svg, x) {
-    $('.emoji-' + svg.alt + "-" +x).animate({
-      top: "70%",
-      left: +Math.random()*90+"%"
-    }, Math.random()*3000 + 3000, function() {
-      remove(svg,x);
-    });
-  }
-
-  function remove(svg, x) {
-    $('.emoji-' + svg.alt + "-" + x).remove()
-  }
-
-  const makeConfetti = (svg) => {
-    let quantity = 9
-    let count = getEmojiCount(svg)
-    for (let i = count; i < count + quantity; i++) {
-      create(svg,i);
-    }
-    increaseEmojiCount(svg, quantity)
-
-  }
-
 
   const emitEmoji = (emoji) => {
     socket.emit('emojiClicked', {emoji, user})

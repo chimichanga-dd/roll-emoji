@@ -20,6 +20,8 @@ const RollADie = () => {
       }, 2800)
     })
 
+    return () => socket.off('spin')
+
   }, [])
 
   const roll = () => {
