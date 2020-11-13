@@ -41,6 +41,7 @@ const UnauthenticatedApp = () => {
           />
           <Button
             className="name-input-submit"
+            disabled={userName.length === 0}
             onClick={(e) => handleSubmit(e)}
           >Submit</Button>
         </Form>
