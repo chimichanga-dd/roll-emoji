@@ -1,0 +1,16 @@
+@import "../../colors.scss";
+
+.ui.button.emoji-button{
+  background-color: $orange-light;
+  border: 1px solid$gray-border;
+}
+
+.ui.button.emoji-button:hover {
+  background-color:$orange-base;
+  border: 1px solid$orange-dark;
+}
+
+.ui.button.emoji-button ::selection {
+  color: red;
+  background: yellow;
+}
