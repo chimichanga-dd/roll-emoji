@@ -1,5 +1,8 @@
 
+@import  "../../colors.scss";
+
 .ui.segment.rolladie-container{
+
   grid-area: roll-side;
   display: flex;
   flex-direction: column;
@@ -10,6 +13,8 @@
   margin: 0px;
 
   height: 100%;
+
+  background-color: $blue-base-trans;
 
 }
 
@@ -53,12 +58,14 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-  background-color: white;
+
+  background-color: $orange-base;
+
 
   height: 250px;
   width: 250px;
 
-  border: 7px solid gray;
+  border: 7px solid$orange-dark;
   box-sizing: border-box;
 
 
@@ -92,10 +99,12 @@
 
 .ui.button.roll-button{
   margin-top: 40px;
+  border: 1px solid$orange-dark;
+  background-color: $orange-light;
 }
 
 
-@media (max-width: 650px){
+@media (max-width: 1250px){
 
   .fake-background{
     width: 170px;
@@ -113,7 +122,7 @@
     height: 170px;
     width: 170px;
 
-    border: 2px solid gray;
+    border: 2px solid$orange-dark;
     box-sizing: border-box;
 
   }
@@ -159,7 +168,7 @@
     height: 110px;
     width: 110px;
 
-    border: 2px solid gray;
+    border: 2px solid$orange-dark;
     box-sizing: border-box;
 
   }

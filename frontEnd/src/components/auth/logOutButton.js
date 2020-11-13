@@ -8,6 +8,7 @@ const LogOutButton = () => {
 
   return (
     <Button
+      className="signOut"
       onClick={() => stateModifiers.logOut()}
     >Sign Out</Button>
   )

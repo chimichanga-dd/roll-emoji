@@ -1,3 +1,4 @@
+@import  "../../colors.scss";
 
 .ui.segment.chat-container{
   grid-area: chat-side;
@@ -10,6 +11,8 @@
   margin: 0px;
 
   height: 100%;
+
+  background-color: $blue-base-trans
 }
 
 .ui.segment.chat-box{
@@ -19,6 +22,9 @@
   flex-direction: column;
   justify-content: flex-end;
   max-height: 400px;
+
+  background: $orange-base;
+  border: 1px solid$orange-dark;
 }
 
 .chat-messages{

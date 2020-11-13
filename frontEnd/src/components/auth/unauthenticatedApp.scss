@@ -1,4 +1,10 @@
 
+@import  "../../colors.scss";
+
+.main-body-unauth{
+ background-color: $blue-lighter;
+}
+
 .error-message {
   color: red
 }
@@ -17,4 +23,6 @@
 
 .ui.button.name-input-submit{
   margin-left: 10px;
+  background: $orange-base;
+  border: 1px solid$gray-border;
 }

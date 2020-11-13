@@ -1,4 +1,9 @@
 
+@import  "../../colors.scss";
+
+.main-body-auth{
+  background-color: #ffa50014;
+ }
 
 .auth-container{
   height: 100%;
@@ -29,6 +34,12 @@
   top:0;
   bottom:0;
   z-index: -1
+}
+
+.ui.button.signOut{
+  background: $blue-base;
+  border: 1px solid$gray-border
+
 }
 
 @media (max-width: 1250px){
