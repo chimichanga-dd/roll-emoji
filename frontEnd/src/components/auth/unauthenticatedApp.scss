@@ -2,11 +2,15 @@
 @import  "../../colors.scss";
 
 .main-body-unauth{
- background-color: $blue-light;
+ background-color: $brown-dark-trans;
 }
 
 .error-message {
   color: red
+}
+
+.ui.segment.name-form-container{
+  background-color: $blue-light;
 }
 
 .name-form-prompt{

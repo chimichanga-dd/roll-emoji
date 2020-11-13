@@ -1,0 +1,25 @@
+
+[class$=message]{
+  margin: 2.5px 10px;
+  word-wrap: break-word;
+}
+
+.standard-message{
+  color: black
+}
+
+.reaction-message{
+  color: blue
+}
+
+.roll-message{
+  color: #a90af6
+}
+
+.connect-message{
+  color: green
+}
+
+.disconnect-message{
+  color: red
+}
