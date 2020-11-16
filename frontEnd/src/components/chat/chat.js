@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import ChatInput from "./chatInput"
 import ChatMessage from "./chatMessage"
 import socket from '../socket/socketIO'
@@ -13,7 +13,7 @@ const Chat = () => {
   const audioRef = useRef(null)
 
 
-  useLayoutEffect(()=> {
+  useEffect(()=> {
     socket.emit('connected', user)
 
     socket.on('message Received', (message) => {
