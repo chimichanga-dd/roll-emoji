@@ -24,18 +24,19 @@ const RollADie = () => {
 
   }, [])
 
+  const generateNum = () => Math.floor(Math.random() * (100 - 1 ) + 1)
+
+
   const roll = () => {
     if(!spinning){
-      let rollNum = Math.floor(Math.random() * 101)
+      let rollNum = generateNum()
       socket.emit('spin', rollNum)
       setTimeout( () => {
         socket.emit('rolled', {user, num: rollNum})
       }, 2800)
-
     }
   }
 
-  const generateNum = () => Math.floor(Math.random() * 101)
 
   return (
     <div className="ui segment rolladie-container">
