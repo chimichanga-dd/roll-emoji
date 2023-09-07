@@ -3,19 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.20.0",
-    "jquery": "^3.5.1",
-    "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^1.2.0",
-    "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "axios": "^1.5.0",
+    "jquery": "^3.7.1",
+    "node-sass": "^9.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +38,5 @@
   "resolutions": {
     "graceful-fs": "4.2.2"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:8080"
 }
