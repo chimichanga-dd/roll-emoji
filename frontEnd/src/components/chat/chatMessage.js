@@ -15,7 +15,7 @@ const ChatMessage = ({ messageObject }) => {
       case "message":
         return (
           <div className={"standard-message"}>
-            {messageObject.person}: {messageObject.message}
+            <b>{messageObject.person}</b>: {messageObject.message}
           </div>
         );
       case "reaction":
